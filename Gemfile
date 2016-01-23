@@ -30,7 +30,7 @@ gem 'sidekiq'
 gem 'local_time'
 
 # Authentication
-gem 'devise'
+gem 'devise', git: 'git@github.com:plataformatec/devise.git'
 
 # Google API client
 gem 'oauth2', github: 'gauravtiwari/oauth2'
