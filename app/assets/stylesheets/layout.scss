@@ -1,0 +1,42 @@
+/*
+  Module: Layout
+*/
+
+@import 'fonts';
+
+html, body {
+  text-rendering: optimizeLegibility;
+}
+body {
+	font-family: $base-font-family;
+	line-height: 1.2;
+	font-weight: 400;
+	font-size: 18px;
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+  background: #fff;
+	white-space: normal;
+}
+.no-content {
+  max-width: 170px;
+  margin: 0 auto;
+  font-size: 40px;
+  padding: 150px 0;
+  color: #f57d2d;
+  z-index: 1020;
+  position: relative;
+}
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.container-fluid {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.full-height{
+  height: 100% !important;
+}

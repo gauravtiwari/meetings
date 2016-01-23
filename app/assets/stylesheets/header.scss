@@ -1,0 +1,82 @@
+/*
+  Module: Header
+*/
+
+.header{
+  position: relative;
+  height: 60px;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 800;
+  .container-fluid {
+    flex-wrap: wrap;
+    display: flex;
+  }
+  a {
+    color: #fff;
+  }
+  .logo {
+    flex: 1 0 33.333%;
+    box-sizing: border-box;
+  }
+  .brand {
+    max-width: 120px;
+    width: 100px;
+  }
+
+  .brand-description {
+    flex: 1 0 33.333%;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+    h3 {
+      color: #fff;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+  }
+  .filters {
+    padding-top: 10px;
+    flex: 1 0 33.333%;
+    box-sizing: border-box;
+    text-align: right;
+    ul {
+      li {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 17px;
+        text-transform: lowercase;
+        a {
+            text-decoration: none;
+            &.active {
+              font-weight: bold;
+              border-bottom: 1px solid #fff;
+              padding-bottom: 3px;
+            }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .logo {
+      flex: 1 0 20%;
+    }
+  }
+  @media (max-width: 620px) {
+    .logo {
+      flex: 1 0 100%;
+      .brand {
+        margin: 0 auto;
+      }
+    }
+    .brand-description {
+      flex: 1 0 100%;
+      text-align: center;
+    }
+    .filters {
+      flex: 1 0 100%;
+      text-align: center;
+    }
+  }
+}
