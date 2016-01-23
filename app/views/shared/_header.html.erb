@@ -18,8 +18,8 @@
           %>
         <% end %>
         <%= content_tag :li do %>
-          <%= link_to('Settings', settings_path,
-            class: "#{current_page?(settings_path) ? 'active' : ''}")
+          <%= link_to('Settings', root_path,
+            class: "#{current_page?(root_path) ? 'active' : ''}")
           %>
         <% end %>
       <% end %>

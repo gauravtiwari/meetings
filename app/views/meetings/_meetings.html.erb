@@ -1,8 +1,8 @@
 <% 10.times do |i| %>
-  <div class="timespan" id="<%= display_day(date) %>">
+  <div class="timespan" id="">
     <div class="span">
-      <h3><%=  local_relative_time(Time.now + "#{i}.day") %></h3>
+      <h3><%=  local_date(Time.now + i.day, '%b %e') %></h3>
     </div>
-    <%= render partial: 'meetings/meeting', locals { i: i } %>
+    <%= render partial: 'meetings/meeting', locals: { i: i } %>
   </div>
 <% end %>
