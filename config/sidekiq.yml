@@ -1,0 +1,16 @@
+---
+:verbose: true
+:concurrency: 5
+:timeout: 30
+development:
+  :concurrency: 5
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 15
+:queues:
+  - default
+  - carrierwave
+  - [mailers, 1]
+  - [high_priority, 2]
+  - [low_priority, 2]
