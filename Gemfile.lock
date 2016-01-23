@@ -143,6 +143,8 @@ GEM
     json (1.8.3)
     jwt (1.5.2)
     little-plugger (1.1.4)
+    local_time (1.0.3)
+      coffee-rails
     logging (2.0.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
@@ -263,6 +265,7 @@ DEPENDENCIES
   google-api-client
   jbuilder (~> 2.0)
   jquery-rails
+  local_time
   oauth2!
   omniauth
   omniauth-google-oauth2

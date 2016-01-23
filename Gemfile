@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
 
+# Time manipulation
+gem 'local_time'
+
 # Authentication
 gem 'devise'
 
