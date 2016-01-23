@@ -1,24 +1,33 @@
-## README
+# Meetings
+Meetings allows team members to view upcoming meetings and set helpful reminders right from any slack channel. Meetings runs Rails 5.0.0 Beta on Ruby 2.3.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
+```
+/mymeetings [today, tomorrow or week]
+Example: /mymeetings today
+```
 
-Things you may want to cover:
+## Development
+```
+git clone repo-url
+cd /directory
+bundle
+./start (from terminal). If you get permission error, just do chmod 777 start
+```
 
-* Ruby version
+## System dependencies
 
-* System dependencies
+Meetings requires the following softwares:
 
-* Configuration
+* Ruby (2.3)
+* PostgreSQL (9.4.5)
 
-* Database creation
+The versions listed are tested and confirmed to work, but the software may also be
+compatible with earlier versions.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Running
+```bash
+	$ bundle exec rails db:create db:migrate
+	$ bundle exec rails console
+	$ ./start from terminal
+```
