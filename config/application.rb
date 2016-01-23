@@ -8,8 +8,18 @@ Bundler.require(*Rails.groups)
 
 module Meetings
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    # Autoload lib
+    config.autoload_paths += Dir["#{config.root}/app/lib/*"]
+
+    # Configure rails g to skip helper/assets files
+    config.generators do |g|
+      g.assets = false
+      g.helper = false
+      g.view_specs      false
+      g.helper_specs    false
+    end
+
+    # Setup sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end
