@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meetings</title>
+    <title>Spot Hyper</title>
+    <meta name="description" content="Share where you are and what you are working on">
+    <link rel="dns-prefetch" href="https://s3-eu-west-1.amazonaws.com">
+    <link rel="dns-prefetch" href="https://use.typekit.net">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-
+    <%= favicon_link_tag 'favicon.ico' %>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://use.typekit.net/ted4gho.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'shared/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render partial: 'shared/footer' %>
   </body>
 </html>

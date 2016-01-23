@@ -1,0 +1,17 @@
+<div class="timeline-block" id="meeting-<%= i %>">
+  <div class="timeline-content">
+    <div class="card full-width">
+      <div class="card-header">
+        <h5>
+          <%= local_time_ago(Time.now) %>
+        </h5>
+        <div class="via">
+          via Google On Slack
+        </div>
+      </div>
+      <div class="card-description">
+        <%= link_to('@You: ', '') %> have a meeting with @great
+      </div>
+    </div>
+  </div>
+</div>
