@@ -243,7 +243,7 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
   {
     :name => 'google',
-    :scope => 'email, profile',
+    :scope => 'email, profile, calendar',
     :prompt => 'select_account',
     :image_aspect_ratio => 'square',
     :image_size => 200

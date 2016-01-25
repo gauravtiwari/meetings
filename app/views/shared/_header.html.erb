@@ -3,7 +3,7 @@
     <div class="logo">
       <%= link_to(root_path) do %>
         <div class="brand">
-          <%= image_tag('hyper_logo.svg') %>
+          <%= image_tag('hyper_logo.svg', class: 'svg') %>
         </div>
       <% end %>
     </div>
@@ -13,14 +13,14 @@
     <div class="filters">
       <%= content_tag :ul do %>
         <%= content_tag :li do %>
-          <%= link_to('All', root_path,
+          <%= link_to('Home', root_path,
               class: "#{current_page?(root_path) ? 'active' : ''}")
           %>
         <% end %>
-        <%= content_tag :li do %>
-          <%= link_to('Settings', root_path,
-            class: "#{current_page?(root_path) ? 'active' : ''}")
-          %>
+        <% if user_signed_in? %>
+          <%= content_tag :li do %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

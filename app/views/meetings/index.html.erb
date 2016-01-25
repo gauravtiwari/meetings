@@ -1,5 +1,28 @@
-<div class="timeline-container center top-circle">
-  <section class="timeline">
-    <%= render partial: 'meetings/meetings' %>
-  </section>
+<div class="meetings-container center">
+  <% if user_signed_in? %>
+    <div class="weekspan">
+      <div class="date">
+        <h1>
+          <%= local_date(Time.now, '%e') %>
+          <span class="month">
+            <%= local_date(Time.now, '%b') %> /
+            <%= local_date(Time.now, '%A') %>
+          </span>
+        </h1>
+      </div>
+      <div class="owner">
+        <%= image_tag(current_user.avatar.url(:mini)) %>
+        <span class="name">
+          <%= 'ohai, ' + current_user.first_name %>
+        </span>
+        <%= link_to(edit_user_path(current_user), class: 'preference') do %>
+          <i class="icon-cog"></i>
+        <% end %>
+      </div>
+    </div>
+    <%= render partial: 'meetings/meetings', locals: { grouped_meetings: @grouped_meetings } %>
+    <% else %>
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google) %>
+      <%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack) %>
+    <% end %>
 </div>

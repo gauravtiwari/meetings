@@ -22,23 +22,32 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
-
 # sidekiq
 gem 'sidekiq'
-
 # Time manipulation
 gem 'local_time'
-
+# Forms
+gem 'simple_form'
 # Authentication
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
-
-# Google API client
+# Google API client and oauth
 gem 'oauth2', github: 'gauravtiwari/oauth2'
-gem 'simple_form'
 gem 'omniauth'
-gem 'google-api-client'
+gem 'google-api-client', :require => 'google/apis/calendar_v3'
 gem 'omniauth-slack'
 gem 'omniauth-google-oauth2'
+# Add redis namespace
+gem 'redis-namespace'
+# Slack client
+gem 'slack-ruby-client'
+# Twilo 
+gem 'twilio-ruby', '~> 4.1.0'
+# Group dates
+gem 'groupdate'
+# Image uploads
+gem 'fog'
+gem 'mini_magick'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

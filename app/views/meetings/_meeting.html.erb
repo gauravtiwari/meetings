@@ -1,16 +1,37 @@
-<div class="timeline-block" id="meeting-<%= i %>">
-  <div class="timeline-content">
+<div class="meetings-block" id="meeting-<%= meeting.id %>">
+  <div class="meetings-content">
     <div class="card full-width">
-      <div class="card-header">
-        <h5>
-          <%= local_time_ago(Time.now) %>
-        </h5>
-        <div class="via">
-          via Google On Slack
-        </div>
+      <div class="colored-counter">
+        <span class="circle <%= random_color %>"></span>
       </div>
       <div class="card-description">
-        <%= link_to('@You: ', '') %> have a meeting with @great
+        <div class="card-header">
+          <h5>
+            <%= link_to(meeting.info["hangout_link"], target: '_blank') do %>
+              <%= meeting.info["summary"] %>
+            <% end %>
+          </h5>
+        </div>
+        <div class="info">
+          <% if meeting.info["location"] %>
+            <address class="address">
+              <i class="icon-location"></i>
+              <%= meeting.info["location"] %>
+            </address>
+          <% end %>
+        </div>
+        <div class="attendees">
+          <div class="attendee">
+            <small>
+              <p><%= meeting.info["attendees"].map{|a| a["display_name"]}.to_sentence %></p>
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="via">
+        <i class="icon-clock"></i>
+        <%= local_time(meeting.starts_at, format: '%l:%M%P', class: 'start-time') %> -
+        <%= local_time(meeting.ends_at, format: '%l:%M%P', class: 'end-time') %>
       </div>
     </div>
   </div>

@@ -1,0 +1,44 @@
+/*
+  Module: Login Page
+*/
+
+
+.pages-container {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.login-links {
+  padding: 50px 0;
+  text-align: center;
+  margin: 15% 0;
+  h1 {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .or {
+    margin: 20px 0;
+    font-size: 13px;
+    font-weight: bold;
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  .link {
+    margin-bottom: 10px;
+    a {
+      text-decoration: none;
+      display: inline-block;
+      clear: both;
+      color: #fff;
+      padding: 10px 20px;
+      background-color: #4285f4;
+      min-width: 250px;
+      border-color: rgba(0,0,0,0.2);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

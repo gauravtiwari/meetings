@@ -1,0 +1,18 @@
+<div class="pages-container center">
+  <div class="login-links">
+    <% if params[:action] == "connect_slack" %>
+      <h1>
+        Connect with slack to receive notifications and
+        reminders about your meetings directly on Slack
+      </h1>
+    <% else %>
+      <h1>Authenticate to fetch your calendar events</h1>
+    <% end %>
+    <div class="link">
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google), class: 'google' unless params[:action] == "connect_slack" %>
+      <% if params[:action] == "connect_slack" %>
+        <%= link_to "Sign in with Slack", user_omniauth_authorize_path(:slack), class: 'slack' %>
+      <% end %>
+    </div>
+  </div>
+</div>

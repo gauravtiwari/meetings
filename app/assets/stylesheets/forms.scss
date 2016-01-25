@@ -1,0 +1,45 @@
+/*
+  Module: Forms
+*/
+form {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  .buttons {
+    margin-top: 20px;
+  }
+  .green {
+    color: #00ff00;
+  }
+  .red {
+    color: #ed172c;
+  }
+  .btn {
+    padding: 5px 10px;
+    background-color: #5495e5;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    &.grey {
+      background-color: #3e576b;
+      text-decoration: none;
+    }
+  }
+  .input {
+    padding: 10px 0;
+    label {
+      margin-right: 10px;
+      input {
+        &.boolean {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  form {
+    max-width: 100%;
+  }
+}

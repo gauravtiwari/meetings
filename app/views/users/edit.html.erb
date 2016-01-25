@@ -1,0 +1,31 @@
+<div class="pages-container center">
+  <div class="edit-user card">
+    <h1>Manage Preferences</h1>
+    <%= simple_form_for(current_user) do |f| %>
+      <div class="form-group">
+        <%= f.input :frequency, label: 'Meetings to fetch', as: :select, collection: current_user.frequencies %>
+      </div>
+      <div class="form-group">
+        <%= f.input :remind, label: 'Send me a reminder when a meeting is due', as: :boolean %>
+      </div>
+      <div class="form-group">
+        <%= f.input :send_text, label: 'Send me a text message when a meeting is due', as: :boolean %>
+      </div>
+      <div class="form-group">
+        <%= f.input :phone, label: 'Enter your phone number' %>
+        <%= content_tag :span, '(unverified phone)', class: 'red' if !current_user.phone_verified? %>
+        <%= content_tag :span, '(verified phone)', class: 'green' if current_user.phone_verified? %>
+      </div>
+      <% if current_user.pin.present? and !current_user.phone_verified %>
+        <div class="form-group">
+          <%= f.label :pin, label: 'Enter pin sent to your phone' %>
+          <%= f.input_field :pin, value: nil %>
+        </div>
+      <% end %>
+      <div class="buttons">
+        <%= f.button :button, 'Save' %>
+        <%= link_to 'back', root_path, class: 'btn grey' %>
+      </div>
+    <% end %>
+  </div>
+</div>

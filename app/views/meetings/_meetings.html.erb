@@ -1,8 +1,17 @@
-<% 10.times do |i| %>
-  <div class="timespan" id="">
-    <div class="span">
-      <h3><%=  local_date(Time.now + i.day, '%b %e') %></h3>
+<% grouped_meetings.each do |date, meetings| %>
+  <% if meetings.length > 0 %>
+    <div class="separator">
+      <h3>
+        <div class="count pull-left">
+          <%= pluralize(meetings.length, 'meeting') %>
+        </div>
+        <div class="date pull-right">
+          <%= local_date(date, '%e %b') %>
+        </div>
+      </h3>
     </div>
-    <%= render partial: 'meetings/meeting', locals: { i: i } %>
-  </div>
+    <section class="meetings">
+      <%= render partial: 'meetings/meeting', collection: meetings %>
+    </section>
+  <% end %>
 <% end %>

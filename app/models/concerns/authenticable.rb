@@ -22,19 +22,34 @@ module Authenticable
         if user.nil?
           user = User.new(
             name: auth.info.name,
-            remote_avatar_url: auth.info.image.sub("_normal", ""),
+            first_name: auth.info.first_name,
+            last_name: auth.info.last_name,
+            remote_avatar_url: auth.info.image,
             email: email,
             password: Devise.friendly_token[0,20]
           )
-          user.skip_confirmation!
-          user.confirmed_at = Time.now
-          user.save!
         end
       end
+
+      if user.avatar.nil?
+        user.remote_avatar_url = auth.info.image
+      end
+
+      if identity.provider == "slack"
+        user.slack_token = identity.token
+        user.slack_uid = '@' + auth.info.nickname
+      elsif identity.provider == "google"
+        user.google_token = identity.token
+      end
+
+      # Finally save the user
+      user.save
+
       if identity.user != user
         identity.user = user
         identity.save!
       end
+
       user
     end
   end
