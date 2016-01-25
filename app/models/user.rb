@@ -55,7 +55,7 @@ class User < ApplicationRecord
   end
 
   def office_open_time
-    Time.now.change(hour: 9).iso8601
+    Time.now.change(hour: 8).iso8601
   end
 
   def office_close_time
@@ -63,7 +63,7 @@ class User < ApplicationRecord
   end
 
   def office_closed?
-    Time.now.iso8601 > office_close_time
+    Time.now.iso8601 > office_close_time || Time.now.iso8601 < office_open_time
   end
 
   def frequencies

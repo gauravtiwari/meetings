@@ -2,7 +2,7 @@ class CheckUpcomingMeetingJob < ApplicationJob
   def perform
     ActiveRecord::Base.transaction do
       User.find_each do |user|
-        if user.upcoming_meeting?
+        if !office_closed? and user.upcoming_meetings?
           if user.slack_token.present?
             SlackClient.new(user.slack_token).post_message(
               user.slack_uid,
