@@ -16,7 +16,10 @@ class UsersController < ApplicationController
           @user.phone_verify(params[:user][:pin])
         elsif @user.phone.present? and !@user.phone_verified
           @user.generate_pin
-          @user.send_pin
+          TwilioClient.new.send_message(
+            @user.phone,
+            "Your Meeting PIN is #{@user.pin}. Please enter into your app to verify your number"
+          )
         end
         format.html {
           redirect_to root_path,

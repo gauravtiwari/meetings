@@ -2,7 +2,7 @@ class FetchEventsJob < ApplicationJob
   def perform(user_id)
     ActiveRecord::Base.transaction do
       user = User.find_by(id: user_id)
-      events = user.calendar_events
+      events = GoogleClient.new.fetch_events(user.from_time, user.google_token)
       events.items.each do |event|
         meeting =  Meeting.unscoped.where(meeting_id: event.id)
         if meeting.present?

@@ -10,6 +10,8 @@ module Meetings
   class Application < Rails::Application
     # Autoload lib
     config.autoload_paths += Dir["#{config.root}/app/lib/*"]
+    config.autoload_paths += Dir["#{config.root}/app/presenters/*"]
+
     # Configure rails g to skip helper/assets files
     config.generators do |g|
       g.assets = false

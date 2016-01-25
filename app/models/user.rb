@@ -18,21 +18,6 @@ class User < ApplicationRecord
 
   public
 
-  def calendar_events
-    calendar = Google::Apis::CalendarV3::CalendarService.new
-    events = calendar.list_events(
-      'primary',
-      always_include_email: true,
-      single_events: false,
-      order_by: 'updated',
-      time_min: Time.now.iso8601,
-      time_max: from_time,
-      options: {
-        authorization: google_token
-      }
-    )
-  end
-
   def phone_verified?
     phone.present? and phone_verified
   end
@@ -45,10 +30,6 @@ class User < ApplicationRecord
     time_from_frequency.from_now.iso8601
   end
 
-  def frequencies
-    ['daily', 'weekly', 'monthly', 'yearly']
-  end
-
   def generate_pin
     self.pin = rand(0000..9999).to_s.rjust(4, "0")
     save
@@ -58,31 +39,12 @@ class User < ApplicationRecord
     update(phone_verified: true) if self.pin == entered_pin
   end
 
-  def send_pin
-    twilio_client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-    twilio_client.messages.create(
-      to: phone,
-      from: ENV['TWILIO_PHONE_NUMBER'],
-      body: "Your Meeting PIN is #{pin}. Please enter into your app to verify your number"
-    )
-  end
-
   def has_meetings?(time)
     unscoped.meetings.where("starts_at >= ?", time).count > 0
   end
 
   def today_meetings
     meetings.where("starts_at >= ?", office_open_time).where("starts_at <= ?", office_close_time)
-  end
-
-  def today_meetings_list
-    intro = "You have #{pluralize(today_meetings.length, 'meeting')} today \n"
-    meetings_list = []
-    meetings_list << intro
-    today_meetings.map { |meeting|
-      meetings_list << '1. ' + meeting.info["summary"] + ' ' + meeting.starts_at.strftime('%H:%M %p')
-    }
-    meetings_list.join("\n")
   end
 
   def upcoming_meetings?
@@ -105,7 +67,12 @@ class User < ApplicationRecord
     Time.now.iso8601 > office_close_time
   end
 
+  def frequencies
+    ['daily', 'weekly', 'monthly', 'yearly']
+  end
+
   private
+
   def time_from_frequency
     case frequency
     when 'daily'
