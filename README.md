@@ -1,5 +1,5 @@
 # Meetings
-Meetings allows team members to view upcoming meetings and set helpful reminders right from any slack channel. Meetings runs Rails 5.0.0 Beta on Ruby 2.3.
+Meetings allows team members to get Google calendar meeting reminders on Slack. Meetings runs Rails 5.0.0 Beta on Ruby 2.3.
 
 ## Usage
 ```
