@@ -29,7 +29,7 @@ gem 'local_time'
 # Forms
 gem 'simple_form'
 # Authentication
-gem 'devise', git: 'git@github.com:plataformatec/devise.git'
+gem 'devise', github: 'plataformatec/devise'
 # Google API client and oauth
 gem 'oauth2', github: 'gauravtiwari/oauth2'
 gem 'omniauth'
@@ -40,7 +40,7 @@ gem 'omniauth-google-oauth2'
 gem 'redis-namespace'
 # Slack client
 gem 'slack-ruby-client'
-# Twilo 
+# Twilo
 gem 'twilio-ruby', '~> 4.1.0'
 # Group dates
 gem 'groupdate'

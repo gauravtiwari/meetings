@@ -20,7 +20,7 @@ GIT
       rack (>= 1.2)
 
 GIT
-  remote: git@github.com:plataformatec/devise.git
+  remote: git://github.com/plataformatec/devise.git
   revision: b97b3e6e3b570324467ac84d807111837943ec20
   specs:
     devise (4.0.0.pre.dev)
