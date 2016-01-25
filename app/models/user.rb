@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   include Authenticable
-  include ActionView::Helpers
 
   public
 

@@ -4,7 +4,7 @@ class SendMeetingListJob < ApplicationJob
       User.find_each do |user|
         if user.slack_token.present?
           SlackClient.new(user.slack_token).post_message(
-            user.slack_uid, MeetingsPresenter.new(user.today_meetings)
+            user.slack_uid, MeetingsPresenter.new(user).today_meetings_list_text
           )
         end
       end

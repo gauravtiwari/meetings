@@ -8,6 +8,8 @@ class SlackClient
     @client.chat_postMessage(
       channel: uid,
       text: message,
+      link_names: '1',
+      username: 'MeetingsBot',
       mrkdwn: true,
       as_user: false
     )

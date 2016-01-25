@@ -6,13 +6,13 @@ class CheckUpcomingMeetingJob < ApplicationJob
           if user.slack_token.present?
             SlackClient.new(user.slack_token).post_message(
               user.slack_uid,
-              MeetingsPresenter.new(user.upcoming_meetings).upcoming_meeting_text
+              MeetingsPresenter.new(user).upcoming_meeting_text
             )
           end
           if user.can_text?
             TwilioClient.new.send_message(
               user.phone,
-              MeetingsPresenter.new(user.upcoming_meetings).upcoming_meeting_text.gsub('\n', '%0a')
+              MeetingsPresenter.new(user).upcoming_meeting_text.gsub('\n', '%0a')
             )
           end
         end
