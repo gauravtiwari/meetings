@@ -13,12 +13,18 @@ body {
 	font-weight: 400;
 	font-size: 18px;
 	height: 100%;
+  background-color: #ccd7e3;
+  color: #3e576b;
 	width: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-style: normal;
-  background: #fff;
 	white-space: normal;
+}
+@media (max-width: 800px) {
+	body {
+		background-color: #fff;
+	}
 }
 .no-content {
   max-width: 170px;
@@ -32,6 +38,7 @@ body {
 .container {
   max-width: 1170px;
   margin: 0 auto;
+  position: relative;
 }
 .container-fluid {
 	padding-left: 30px;
@@ -39,4 +46,10 @@ body {
 }
 .full-height{
   height: 100% !important;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
 }

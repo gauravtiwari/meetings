@@ -7,19 +7,19 @@ $base-font-family: "proxima-nova", sans-serif;
 @charset "UTF-8";
 
 @font-face {
-  font-family: "sh";
-  src:asset-url("sh.eot");
-  src:url("sh.eot?#iefix") format("embedded-opentype"),
-   asset-url("sh.woff") format("woff"),
-   asset-url("sh.ttf") format("truetype"),
-   asset-url("sh.svg#sh") format("svg");
+  font-family: "meetings";
+  src:asset-url("meetings.eot");
+  src:url("meetings.eot?#iefix") format("embedded-opentype"),
+   asset-url("meetings.woff") format("woff"),
+   asset-url("meetings.ttf") format("truetype"),
+   asset-url("meetings.svg#meetings") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "sh" !important;
+  font-family: "meetings" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -33,7 +33,7 @@ $base-font-family: "proxima-nova", sans-serif;
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "sh" !important;
+  font-family: "meetings" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -44,9 +44,40 @@ $base-font-family: "proxima-nova", sans-serif;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-good4:before {
-  content: "\61";
+[class*="icon-"] {
+  vertical-align: middle;
+  margin-right: 5px;
 }
-.icon-smiling36:before {
-  content: "\62";
+.icon-profile:before {
+  content: "\63";
+}
+.icon-location:before {
+  content: "\64";
+}
+.icon-home:before {
+  content: "\65";
+}
+.icon-clock:before {
+  content: "\66";
+}
+.icon-refresh:before {
+  content: "\67";
+}
+.icon-phone:before {
+  content: "\68";
+}
+.icon-bars:before {
+  content: "\69";
+}
+.icon-cog:before {
+  content: "\6a";
+}
+.icon-more:before {
+  content: "\6b";
+}
+.icon-help:before {
+  content: "\6c";
+}
+.icon-mail:before {
+  content: "\6d";
 }

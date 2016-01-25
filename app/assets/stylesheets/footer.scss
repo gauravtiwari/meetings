@@ -5,10 +5,15 @@
 .footer {
 	padding: 20px 0;
 	text-align: center;
+  width: 100%;
+  bottom: 10px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #3e576b;
 }
 
 @media (max-width: 580px) {
 	.footer {
-		color: #fff;
+		color: #3e576b;
 	}
 }

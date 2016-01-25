@@ -5,55 +5,60 @@
 .card {
 	padding-bottom: 0;
 	margin-bottom: 0;
-	float: left;
 	position: relative;
-	width: 300px;
-	color: #fff;
-	.votes {
-		a {
-			color: #fff;
-			text-decoration: none;
-			.vote {
-				display: table;
-				i {
-					vertical-align: middle;
-					display: table-cell;
-					padding-right: 5px;
-				}
-				.count {
-					  display: table-cell;
-				}
+	width: 100%;
+	color: #355166;
+	display: table;
+	&.edit-user {
+		background-color: #fff;
+    padding: 20px;
+		h1 {
+			border-bottom: 1px solid #f2f2f2;
+			padding-bottom: 5px;
+		}
+	}
+	.colored-counter {
+		display: table-cell;
+		width: 10%;
+		vertical-align: baseline;
+		.circle {
+			width: 10px;
+			height: 10px;
+			background-color: #333;
+			border-radius: 10px;
+			display: block;
+			&.green {
+				background-color: #00ff00;
+			}
+			&.pink {
+				background-color: #f10088;
+			}
+			&.blue {
+				background-color: #00c0dd;
+			}
+			&.orange {
+				background-color: #fc9e3e;
+			}
+			&.red {
+				background-color: #ed172c;
+			}
+			&.dark-green {
+				background-color: #b0d155;
+			}
+			&.yellow {
+				background-color: #ffc443;
 			}
 		}
 	}
-	&.full-width{
-		width: 100% !important
-	}
-  .card-header {
-    padding: 5px 0;
-    border-bottom:1px solid #f2f2f2;
-    h5 {
-      font-size: 14px;
-      margin: 0;
-      letter-spacing: -0.006em;
-      margin-top: -3px;
-			display: inline-block;
-    }
-    h6 {
-    	font-size: 12px;
-      margin: 0;
-      opacity: .45;
-      font-family: arial;
-      opacity: .45;
-    }
-    .via {
-      opacity: .45;
-      display: block;
-      font-size: 12px;
-			float: right;
-      font-family: arial;
-      margin-top: 5px;
-    }
+  .via {
+    opacity: .7;
+    display: block;
+    font-size: 12px;
+		float: right;
+    font-family: arial;
+		vertical-align: baseline;
+    margin-top: 5px;
+		display: table-cell;
   }
   .card-description {
     padding:5px 0;
@@ -62,6 +67,65 @@
     word-wrap: break-word;
     margin: 0;
 		font-weight: 500;
+		width: 60%;
+		display: table-cell;
+	  .card-header {
+	    padding: 5px 5px;
+	    h5 {
+	      font-size: 16px;
+	      margin: 0;
+	      letter-spacing: -0.006em;
+	      margin-top: -3px;
+				display: inline-block;
+				font-weight: bold;
+				a {
+					color: inherit;
+					text-decoration: none;
+				}
+	    }
+	    h6 {
+	    	font-size: 12px;
+	      margin: 0;
+	      opacity: .45;
+	      font-family: arial;
+	      opacity: .45;
+	    }
+	  }
+		.info {
+			.title {
+				font-size: 20px;
+				font-weight: 400;
+				display: inline-block;
+				margin-bottom: 5px;
+			}
+			.description {
+				font-size: 16px;
+		    font-weight: 400;
+				font-weight: bold;
+				display: inline-block;
+				margin-bottom: 5px;
+			}
+			.address {
+				font-size: 13px;
+				color: #333;
+				display: block;
+		    opacity: 0.5;
+				font-style: normal;
+				font-weight: 400;
+				margin-bottom: 5px;
+			}
+			.hangout {
+				font-size: 14px;
+				display: inline-block;
+				color: #427fed;
+				float: right;
+				font-weight: 600;
+				a {
+					color: inherit;
+					font-weight: inherit;
+				}
+			}
+		}
     a {
     	color: #f2f2f2;
     	text-decoration: none;
@@ -69,12 +133,17 @@
 			color: #f57d2d;
     }
   }
-	@media (max-width: 580px) {
+	@media (max-width: 800px) {
 		.card-description {
 			font-size: 22px;
 		}
 	}
-  .card-content{
-    position: relative;
-  }
+	@media (max-width: 620px) {
+		.colored-counter {
+			display: none;
+		}
+		.via {
+			vertical-align: middle;
+		}
+	}
 }

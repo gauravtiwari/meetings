@@ -12,10 +12,11 @@
  *
  *= require reset
  *= require layout
- *= require colors
  *= require fonts
  *= require header
+ *= require forms
  *= require footer
+ *= require login
  *= require mixins
  *= require cards
  *= require timeline

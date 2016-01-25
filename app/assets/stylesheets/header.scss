@@ -13,7 +13,7 @@
     display: flex;
   }
   a {
-    color: #fff;
+    color: #3e576b;
   }
   .logo {
     flex: 1 0 33.333%;
@@ -22,6 +22,9 @@
   .brand {
     max-width: 120px;
     width: 100px;
+    path {
+      fill: #3e576b;
+    }
   }
 
   .brand-description {
@@ -30,13 +33,13 @@
     padding-top: 10px;
     text-align: center;
     h3 {
-      color: #fff;
+      color: #3e576b;
       font-size: 13px;
+      font-weight: 600;
       text-transform: uppercase;
     }
   }
   .filters {
-    padding-top: 10px;
     flex: 1 0 33.333%;
     box-sizing: border-box;
     text-align: right;
@@ -44,13 +47,13 @@
       li {
         display: inline-block;
         margin-right: 10px;
-        font-size: 17px;
-        text-transform: lowercase;
+        font-size: 14px;
         a {
             text-decoration: none;
+            color: #3e576b;
             &.active {
               font-weight: bold;
-              border-bottom: 1px solid #fff;
+              border-bottom: 1px solid #3e576b;
               padding-bottom: 3px;
             }
         }
@@ -61,6 +64,24 @@
   @media (max-width: 800px) {
     .logo {
       flex: 1 0 20%;
+    }
+    .brand-description {
+      h3 {
+        color: #3e576b;
+      }
+    }
+    .filters {
+      ul {
+        li {
+          a {
+            text-decoration: none;
+            color: #3e576b;
+            &.active {
+              border-bottom: 1px solid #3e576b;
+            }
+          }
+        }
+      }
     }
   }
   @media (max-width: 620px) {
@@ -73,6 +94,9 @@
     .brand-description {
       flex: 1 0 100%;
       text-align: center;
+      h3 {
+        color: #3e576b;
+      }
     }
     .filters {
       flex: 1 0 100%;
